@@ -1,12 +1,18 @@
-#read the relevant data
+#below code creates the third graph in assignment
+#data is collected from Electric power consumption as per forked library
+
 dataFile <- "./data/household_power_consumption.txt"
 data <- read.table(dataFile, header=TRUE, sep=";", stringsAsFactors=FALSE, dec=".")
+#first read the relevant data from dates mentioned in assignment
+
 data_graph <- data[data$Date %in% c("1/2/2007","2/2/2007") ,]
 
 
 #below code to subset the data
 datetime <- strptime(paste(data_graph$Date, data_graph$Time, sep=" "), "%d/%m/%Y %H:%M:%S") 
 globalActivePower <- as.numeric(data_graph$Global_active_power)
+
+#convert to numeric
 subMetering1 <- as.numeric(data_graph$Sub_metering_1)
 subMetering2 <- as.numeric(data_graph$Sub_metering_2)
 subMetering3 <- as.numeric(data_graph$Sub_metering_3)
