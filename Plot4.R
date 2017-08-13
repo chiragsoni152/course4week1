@@ -1,7 +1,11 @@
-#read the relevant data
+#below code creates the fourth graph in assignment
+#data is collected from Electric power consumption as per forked library
 
 dataFile <- "./data/household_power_consumption.txt"
 data <- read.table(dataFile, header=TRUE, sep=";", stringsAsFactors=FALSE, dec=".")
+#first read the relevant data from dates mentioned in assignment
+
+
 data_graph <- data[data$Date %in% c("1/2/2007","2/2/2007") ,]
 
 #below code used to extract features 
@@ -18,7 +22,7 @@ globalReactivePower <- as.numeric(data_graph$Global_reactive_power)
 voltage <- as.numeric(data_graph$Voltage)
 
 
-#png function to set the required variables
+#png function to set the required variables and dimensions
 png("plot4.png", width=480, height=480)
 par(mfrow = c(2, 2)) 
 
